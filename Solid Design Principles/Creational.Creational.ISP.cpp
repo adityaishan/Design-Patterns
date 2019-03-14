@@ -1,5 +1,4 @@
 #include <vector> //Interface Segregation Principle
-struct Document;
 
 //struct IMachine
 //{
