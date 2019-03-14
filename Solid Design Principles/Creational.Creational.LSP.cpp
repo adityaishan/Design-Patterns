@@ -1,7 +1,7 @@
  // Objects in a program should be replaceable with instances of their subtypes
 // w/o altering the correctness of the program
 
-#include <iostream>
+#include <iostream> //Liskov Substitution Principle
 
 class Rectangle
 {
