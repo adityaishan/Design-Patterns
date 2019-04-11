@@ -21,16 +21,12 @@ struct Specification
 {
   virtual ~Specification() = default;
   virtual bool is_satisfied(T* item) const = 0;
-
-  AndSpecification<T> operator&&(Specification<T>&& other)
-  {
-    return AndSpecification<T>(*this, other);
-  }
 };
 
 template <typename T> AndSpecification<T> operator&&
           (const Specification<T>& first, const Specification<T>& second)
 {
+
   return { first, second };
 }
 
@@ -39,7 +35,7 @@ struct AndSpecification : Specification<T>
 {
   const Specification<T>& first;
   const Specification<T>& second;
-    
+
     AndSpecification(const Specification<T>& first, const Specification<T>& second) 
                      : first(first), second(second) {}
 
@@ -96,8 +92,8 @@ struct BetterFilter : Filter<Product>
   }
 };
 
-int main()
-{
+int main(){
+
   Product apple{"apple", Color::green, Size::small};
   Product tree{"Tree", Color::green, Size::large};
   Product house{"House", Color::blue, Size::large};
