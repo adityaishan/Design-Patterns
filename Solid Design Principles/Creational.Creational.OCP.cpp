@@ -96,8 +96,8 @@ struct BetterFilter : Filter<Product>
   }
 };
 
-int main(){
-
+int main()
+{
   Product apple{"apple", Color::green, Size::small};
   Product tree{"Tree", Color::green, Size::large};
   Product house{"House", Color::blue, Size::large};
