@@ -118,6 +118,5 @@ int main(){
   for(auto& x : bf.filter(items, spec)){
     cout << x->name << " is green and large\n";
   }
-
   return 0;
 }
