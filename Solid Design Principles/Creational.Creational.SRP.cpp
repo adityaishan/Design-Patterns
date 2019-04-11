@@ -45,6 +45,7 @@ struct PersistenceManager
 
 int main()
 {
+  
   Journal journal{"Dear Diary"};
   journal.add("I ate a bug");
   journal.add("I cried today");
