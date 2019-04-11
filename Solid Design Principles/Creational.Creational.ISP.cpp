@@ -1,63 +1,60 @@
-#include <vector> //Interface Segregation Principle
+// The Interface Segregation Principle (ISP): 
+// Clients should not be forced to depend upon interfaces that they do not use.
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
 
-//struct IMachine
-//{
-//  virtual void print(Document& doc) = 0;
-//  virtual void fax(Document& doc) = 0;
-//  virtual void scan(Document& doc) = 0;
-//};
-//
-//struct MFP : IMachine
-//{
-//  void print(Document& doc) override;
-//  void fax(Document& doc) override;
-//  void scan(Document& doc) override;
-//};
-
-// 1. Recompile
-// 2. Client does not need this
-// 3. Forcing implementors to implement too much
-
-struct IPrinter
+class SomeButtonController
 {
-  virtual void print(Document& doc) = 0;
+    public:
+        virtual void onButtonDown(SomeButton* button) = 0;
+        virtual void onButtonUp(SomeButton* button)   = 0;
 };
 
-struct IScanner
+class SomeButton 
 {
-  virtual void scan(Document& doc) = 0;
+    private:
+        SomeButtonController* _controller;
+    
+    public:
+        void setController(SomeButtonController* controller);
 };
 
-struct Printer : IPrinter
+class SomeWindowController
 {
-  void print(Document& doc) override;
+    public:
+        virtual void onWindowOpen(SomeWindow* window)  = 0;
+        virtual void onWindowClose(SomeWindow* window) = 0;
+        virtual void onWindowMoved(SomeWindow* window) = 0;
 };
 
-struct Scanner : IScanner
+class SomeWindow
 {
-  void scan(Document& doc) override;
+    private:
+        SomeWindowController* _controller;
+    
+    public:
+        void setController(SomeWindowController* controller);
 };
 
-struct IMachine: IPrinter, IScanner
+class SomeController : public SomeButtonController, public SomeWindowController
 {
+    private:
+        SomeWindow* _window;
+        SomeButton* _okButton;
+        SomeButton* _cancelButton;
+    
+    public:
+        void onButtonDown(SomeButton* button);
+        void onButtonUp(SomeButton* button);
+        void onWindowOpen(SomeWindow* window);
+        void onWindowClose(SomeWindow* window);
+        void onWindowMoved(SomeWindow* window);
 };
 
-struct Machine : IMachine
+int main()
 {
-  IPrinter& printer;
-  IScanner& scanner;
 
-  Machine(IPrinter& printer, IScanner& scanner)
-    : printer{printer},
-      scanner{scanner}
-  {
-  }
-
-  void print(Document& doc) override {
-    printer.print(doc);
-  }
-  void scan(Document& doc) override;
-};
-
-// IPrinter --> Printer
-// everything --> Machine
+    return 0;
+}
