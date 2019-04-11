@@ -1,3 +1,4 @@
+//Open for Extension and closed for Modification
 #include <string>
 #include <vector>
 #include <iostream>
