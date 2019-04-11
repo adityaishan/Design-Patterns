@@ -1,59 +1,61 @@
- // Objects in a program should be replaceable with instances of their subtypes
-// w/o altering the correctness of the program
+// Definition: The Liskov Substitution Principle 
+//             is a concept in Object Oriented Programming that states:
 
-#include <iostream> //Liskov Substitution Principle
+//             Functions that use pointers or references to base 
+//             classes must be able to use objects of derived classes 
+//              without knowing it.
+
+#include <string>
+#include <vector>
+#include <iostream>
+using namespace std;
 
 class Rectangle
 {
-protected:
-  int width, height;
-public:
-  Rectangle(const int width, const int height)
-    : width{width}, height{height} { }
+  protected:
+    int width, height;
+  public:
+    Rectangle(int width, int height) : width(width), height(height) {}
 
-  int get_width() const { return width; }
-  virtual void set_width(const int width) { this->width = width; }
-  int get_height() const { return height; }
-  virtual void set_height(const int height) { this->height = height; }
+      int  getWidth() const { return width; }
+      
+      virtual void setWidth(const int width) { this->width = width; }
+      
+      int  getHeight() const { return height; }
+      
+      virtual void setHeight(const int height) { this->height = height; } 
 
-  int area() const { return width * height; }
+      int area() const { return width * height; }
 };
 
 class Square : public Rectangle
 {
-public:
-  Square(int size): Rectangle(size,size) {}
-  void set_width(const int width) override {
-    this->width = height = width;
-  }
-  void set_height(const int height) override {
-    this->height = width = height;
-  }
-};
+  public:
+    Square(int size) : Rectangle(size, size) {}
 
-struct RectangleFactory
-{
-  static Rectangle create_rectangle(int w, int h);
-  static Rectangle create_square(int size);
+      void setWidth(int width) override {
+        this->width = this->height = width;
+      }
+
+      void setHeight(int height) override {
+        this->height = this->width = height;
+      }
 };
 
 void process(Rectangle& r)
 {
-  int w = r.get_width();
-  r.set_height(10);
+  int w = r.getWidth();
+  r.setHeight(10);
 
-  std::cout << "expected area = " << (w * 10) 
-    << ", got " << r.area() << std::endl;
+  cout << "expected area = " << (w*10)
+       << ", got " << r.area() << "\n"; 
 }
-
 int main()
 {
-  Rectangle r{ 5,5 };
+  Rectangle r(3,4);
   process(r);
-
-  Square s{ 5 };
-  process(s);
-
-  getchar();
+    
+    Square sq(5);
+    process(sq); 
   return 0;
 }
