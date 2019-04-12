@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <string>
 #include <vector>
 #include <tuple>
@@ -9,12 +9,7 @@ using namespace std;
 // B. Abstractions should not depend on details. 
 //    Details should depend on abstractions.
 
-enum class Relationship
-{
-  parent,
-  child,
-  sibling
-};
+enum class Relationship { parent, child, sibling };
 
 struct Person
 {
