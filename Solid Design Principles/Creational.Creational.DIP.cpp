@@ -78,6 +78,5 @@ int main()
   relationships.add_parent_and_child(parent, child2);
 
   Research _(relationships);
-
   return 0;
 }
