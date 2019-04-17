@@ -55,7 +55,7 @@ class DistrWorkPackage
 class Builder
 {
     protected:
-        DistrWorkPackage* _result;
+        DistrWorkPackage* _result = nullptr;
 
     public:
         virtual void configureFile(const char*)    = 0;
@@ -119,7 +119,7 @@ class VmsBuilder: public Builder
 class Reader
 {
   private:
-    Builder* _builder;
+    Builder* _builder = nullptr;
 
   public:
     void setBuilder(Builder* b){
