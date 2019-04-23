@@ -30,7 +30,7 @@ class MyDocument : public Document
             std::cout << "  MyDocument: Open()\n";
         }
 
-        void close()const {
+        void close() const {
             std::cout << "  MyDocument: Close()\n";
         }
 
