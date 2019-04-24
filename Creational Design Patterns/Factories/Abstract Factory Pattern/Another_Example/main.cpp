@@ -3,7 +3,7 @@
 
 using namespace std;
 
-//Abtract base product
+//Abtract base product template
 class Widget
 {
 	public:
