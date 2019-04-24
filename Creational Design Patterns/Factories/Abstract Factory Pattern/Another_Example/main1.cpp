@@ -5,7 +5,7 @@ using namespace std;
 
 //Abstract base product. It defines a template
 //common to all products. Client will interact
-//with Widget template
+//with Widget template.
 class Widget
 {
 	public:
