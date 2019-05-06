@@ -6,35 +6,35 @@
 
 class Stooge
 {
-	public:
-		virtual void slap_stick() = 0;
+   public:
+	 virtual void slap_stick() = 0;
 };
 
 class Larry: public Stooge
 {
-	public:
-		void slap_stick()
-		{
-			std::cout << "Larrt: poke eyes\n";
-		}
+  public:
+      void slap_stick()
+      {
+          std::cout << "Larrt: poke eyes\n";
+      }
 };
 
 class Moe: public Stooge
 {
-	public:
-		void slap_stick()
-		{
-			std::cout << "Moe: slap head\n";
-		}
+  public:
+      void slap_stick()
+      {
+          std::cout << "Moe: slap head\n";
+      }
 };
 
 class Curly: public Stooge
 {
-	public:
-		void slap_stick()
-		{
-			std::cout << "Curly: suffers\n";
-		}
+  public:
+      void slap_stick()
+      {
+          std::cout << "Curly: suffers\n";
+      }
 };
 
 int main()
@@ -51,8 +51,8 @@ int main()
 
 		if(!choice) break;
 		else if(choice == 1) roles.push_back(std::make_unique<Larry>());
-	    else if(choice == 2) roles.push_back(std::make_unique<Moe>());
-	    else if(choice == 3) roles.push_back(std::make_unique<Curly>());
+	  else if(choice == 2) roles.push_back(std::make_unique<Moe>());
+	  else if(choice == 3) roles.push_back(std::make_unique<Curly>());
 	}
 
 	for(size_t i = 0; i != roles.size(); ++i)
