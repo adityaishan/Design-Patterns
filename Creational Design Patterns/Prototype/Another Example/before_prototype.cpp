@@ -54,6 +54,5 @@ int main()
     }
    for(size_t i = 0; i != roles.size(); ++i)
      roles[i]->slap_stick();
-  
   return 0;
 }
