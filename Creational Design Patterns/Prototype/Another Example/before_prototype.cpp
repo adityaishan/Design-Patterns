@@ -7,7 +7,7 @@
 class Stooge
 {
    public:
-	     virtual void slap_stick() = 0;
+       virtual void slap_sticks() = 0;
 };
 
 class Larry: public Stooge
