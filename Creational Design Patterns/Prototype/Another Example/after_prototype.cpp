@@ -59,7 +59,7 @@ public:
 };
 
 std::unique_ptr<Stooge> Factory::s_prototypes[] = {
-    0,
+    nullptr,
     std::make_unique<Larry>(),
     std::make_unique<Moe>(),
     std::make_unique<Curly>()
