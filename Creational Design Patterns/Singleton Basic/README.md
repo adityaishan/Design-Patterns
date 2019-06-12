@@ -4,9 +4,8 @@ NOTE: In our code we are fetching data from the database with the help of Single
 
 What is the problem with Basic Singleton?
 
-We are tied to the actual database, so when we get a productiond database and when we expect data from
+We are tied to the actual database, so when we get a production database and we expects data from
 that database.
-
 This emplies that our tests is not a unit test. It is unfortunately an integration test.
 
 How? -> We wanted to test the singleton record find operation not the operation of the database. Its all
