@@ -42,7 +42,7 @@ class Printer
 {
 public:
     Printer(){
-        ++Printer::totalInstanceCount;
+        ++totalInstanceCount;
         cout << "A total of " << Printer::totalInstanceCount << " instances created so far\n";
     }
 
