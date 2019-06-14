@@ -8,33 +8,33 @@ using namespace std;
 class GlobalClass
 {
 private:
-	int m_value;
-	static GlobalClass *s_instance;
-	GlobalClass(int v = 0){
-		m_value = v;
-	}
+    int m_value;
+    static GlobalClass *s_instance;
+    GlobalClass(int v = 0){
+        m_value = v;
+    }
 
 public:
-	int get_value(){
-		return m_value;
-	}
+    int get_value(){
+        return m_value;
+    }
 
-	void set_value(int v){
-		m_value = v;
-	}
+    void set_value(int v){
+        m_value = v;
+    }
 
-	static GlobalClass* instance(){
-		
-		if(!s_instance)
-			s_instance = new GlobalClass;
-		return s_instance;
-	}
+    static GlobalClass* instance(){
+        
+        if(!s_instance)
+            s_instance = new GlobalClass;
+        return s_instance;
+    }
 };
 
 // Allocating and initializing GlobalClass's
 // static data member.  The pointer is being
 // allocated - not the object inself.
-GlobalClass *GlobalClass::s_instance = 0;
+GlobalClass *GlobalClass::s_instance = nullptr;
 
 void foo(void)
 {
