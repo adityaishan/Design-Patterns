@@ -27,7 +27,7 @@ void foo()
 {
     //Initialization on first use
     if(!global_ptr)
-        global_ptr = new GlobalClass;
+        std::unique_ptr<GlobalClass> global_ptr(new GlobalClass());
     global_ptr->set_value(1);
     cout << "foo: global_ptr is " << global_ptr->get_value() << "\n";
 }
@@ -35,7 +35,7 @@ void foo()
 void bar()
 {
     if(!global_ptr)
-        global_ptr = new GlobalClass;
+        std::unique_ptr<GlobalClass> global_ptr(new GlobalClass());
     global_ptr->set_value(2);
     cout << "bar: global_ptr is " << global_ptr->get_value() << "\n";
 }
