@@ -23,7 +23,7 @@ public:
 		m_value = v;
 	}
 
-	static GlobalClass *instance(){
+	static GlobalClass* instance(){
 		
 		if(!s_instance)
 			s_instance = new GlobalClass;
