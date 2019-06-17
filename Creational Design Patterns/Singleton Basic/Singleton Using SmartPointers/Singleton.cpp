@@ -79,7 +79,6 @@ int main()
     ContainerClass* pClass3 = new ContainerClass();
     delete pClass3;
 
-    cout << "Exiting main\n";
-    
+    cout << "Exiting main\n";    
     return 0;
 }
