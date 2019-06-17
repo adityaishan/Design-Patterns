@@ -70,14 +70,21 @@ int main()
 {
     cout << "Entering main\n";
 
-    ContainerClass* pClass1 = new ContainerClass();
-    ContainerClass* pClass2 = new ContainerClass();
+    //ContainerClass* pClass1 = new ContainerClass();
+    std::unique_ptr<ContainerClass> pClass1(new ContainerClass());
+    //ContainerClass* pClass2 = new ContainerClass();
+    std::unique_ptr<ContainerClass> pClass2(new ContainerClass());
 
-    delete pClass1;
-    delete pClass2;
+    //delete pClass1;
+    pClass1.reset();
+    //delete pClass2;
+    pClass2.reset();
 
-    ContainerClass* pClass3 = new ContainerClass();
-    delete pClass3;
+    //ContainerClass* pClass3 = new ContainerClass();
+    std::unique_ptr<ContainerClass> pClass3(new ContainerClass());
+    
+    //delete pClass3;
+    pClass3.reset();
 
     cout << "Exiting main\n";    
     return 0;
