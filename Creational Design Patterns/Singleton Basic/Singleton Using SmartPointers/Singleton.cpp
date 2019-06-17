@@ -80,4 +80,6 @@ int main()
     delete pClass3;
 
     cout << "Exiting main\n";
+    
+    return 0;
 }
