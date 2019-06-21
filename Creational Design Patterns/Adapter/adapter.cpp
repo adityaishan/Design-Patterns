@@ -46,6 +46,7 @@ public:
 int main()
 {
 	//Rectangle *r = new RectangleAdapter(120, 200, 60, 40);
-	std::unique_ptr<RectangleAdapter> obj(new RectangleAdapter(10, 20, 30, 40));
-	obj->draw();
+	//std::unique_ptr<RectangleAdapter> obj(new RectangleAdapter(10, 20, 30, 40));
+	std::unique_ptr<RectangleAdapter> obj = std::make_unique<RectangleAdapter>(10, 20, 30, 40);
+    obj->draw();
 }
